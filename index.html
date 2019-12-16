@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Boolflix</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="fullpage" class="flex-wrapper">
+      <header class="flex-wrapper">
+        <div class="topleft">
+          <h1>BOOLFLIX</h1>
+        </div>
+        <div class="topright">
+          <input id="search" type="text" name="" value="" placeholder="Search for a movie...">
+        </div>
+      </header>
+      <!-- Main -->
+      <section id="mainzone">
+        <div class="flex-wrapper container movzone">
+        </div>
+      </section>
+      <!-- End main -->
+    </div>
+    <script id="movie-template" type="text/x-handlebars-template">
+      <div class="movie-container">
+        <div class="movie">
+          <h3 class="title"> Title: {{ title }} </h2>
+          <h3 class="title"> Original Title: {{ originalTitle }} </h2>
+          <h4 class="lang"> Language: {{ language }} </h3>
+          <h4 clas="rank"> Stars: {{ stars }} </h4>
+        </div>
+      </div>
+    </script>
+  </body>
+</html>
