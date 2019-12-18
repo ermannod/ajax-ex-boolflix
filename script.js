@@ -69,13 +69,17 @@ $(document).ready(function(){
       }
       var lang = current.original_language;
       var stars = (current.vote_average / 2);
+      var poster = current.poster_path;
+      var posterSize = 'w342';
+      console.log(poster);
       var context =
         {
           type : type,
           title: movie,
           originalTitle: movieOrig,
           language: flags(lang),
-          stars: starIcon(ranking_stars(stars))
+          stars: starIcon(ranking_stars(stars)),
+          poster : 'https://image.tmdb.org/t/p/' + posterSize + poster
         };
       var html = template(context);
       $(".movzone").append(html).show();
