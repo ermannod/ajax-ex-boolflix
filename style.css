@@ -74,9 +74,15 @@ header{
   height: 360px;
 }
 
-h3,h4{
+h3,h4,h6{
   color: white;
   padding: 0 8px;
+}
+
+h4 img {
+  width: 20px;
+  position: relative;
+  top: 6px;
 }
 
 /** End Main **/
