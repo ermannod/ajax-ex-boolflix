@@ -28,13 +28,16 @@
     </div>
     <script id="movie-template" type="text/x-handlebars-template">
       <div class="movie-container">
-        <div class="movie">
-          <img src="{{{ poster }}}">
+
+        <img id="poster" src="{{{ poster }}}">
+
+        <div class="movie hidden">
           <h6> {{ type }} </h6>
           <h3 class="title"> Title: {{ title }} </h2>
           <h3 class="title"> Original Title: {{ originalTitle }} </h2>
           <h4 class="lang"> Language: {{{ language }}} </h3>
           <h4 clas="rank"> Stars: {{{ stars }}} </h4>
+          <p> Overview: {{ overview }} </p>
         </div>
       </div>
     </script>

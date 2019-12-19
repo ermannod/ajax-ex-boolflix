@@ -4,7 +4,6 @@ $(document).ready(function(){
 
   $("#search").keypress(function(event){
     var searched = $('#search').val();
-    console.log(searched);
     if ( event.which == 13 && searched.length != "") {
       $(".movzone").empty();
       $('#search').val("");
@@ -13,6 +12,10 @@ $(document).ready(function(){
     }; //end event.which == 13
   });// end #mynewmess keypress
 
+
+  // $('.movie-container').mouseenter(function(){
+  //   $('.movie').hide();
+  // });
 
 
   function searchBar(searched){
@@ -69,9 +72,22 @@ $(document).ready(function(){
       }
       var lang = current.original_language;
       var stars = (current.vote_average / 2);
-      var poster = current.poster_path;
+      var current_poster = current.poster_path;
+      var poster ="";
       var posterSize = 'w342';
-      console.log(poster);
+      if (current_poster != null){
+        poster = 'https://image.tmdb.org/t/p/' + posterSize + current_poster;
+      } else {
+        poster = 'NA/imgna.jpg';
+      }
+      var desc = current.overview;
+      var overview = "";
+      if (desc == ""){
+        overview = "Not yet available"
+      } else{
+        overview = desc
+      }
+      console.log(desc);
       var context =
         {
           type : type,
@@ -79,12 +95,13 @@ $(document).ready(function(){
           originalTitle: movieOrig,
           language: flags(lang),
           stars: starIcon(ranking_stars(stars)),
-          poster : 'https://image.tmdb.org/t/p/' + posterSize + poster
+          poster : poster,
+          overview: overview
         };
       var html = template(context);
       $(".movzone").append(html).show();
-      }
-    }
+    }; // end For
+  };// end addSearched
 
 
   function ranking_stars(star){
@@ -114,6 +131,4 @@ $(document).ready(function(){
 
     return countryLang;
   } // end flags
-
-
 }); // End Dom
